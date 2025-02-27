@@ -1,4 +1,9 @@
-export const HomeLayout = () => {
-  return <div>HomeLayout</div>;
+import { Outlet } from 'react-router-dom';
+const HomeLayout = () => {
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 };
-export default HomeLayout
+export default HomeLayout;
