@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -8,10 +9,11 @@ import {
   Login,
   DashboardLayout,
   Error,
-  AddPost, 
-  AllPosts,
+  AddJob, 
+  AllJobs,
   Profile, 
-  Admin
+  Admin,
+  EditJob
 } from './pages';
 
 import { action as registerAction } from './pages/Register';
@@ -60,13 +62,13 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <AddPost />,
-            action: addPostAction(queryClient),
+            element: <AddJob />,
+            action: addJobAction(queryClient),
           },
           {
             path: 'all-jobs',
-            element: <AllPosts />,
-            loader: allPostsLoader(queryClient),
+            element: <AllJobs />,
+            loader: allJobsLoader(queryClient),
             errorElement: <ErrorElement />,
           },
           {
@@ -81,11 +83,11 @@ const router = createBrowserRouter([
           },
           {
             path: 'edit-job/:id',
-            element: <EditPost />,
-            loader: editPostLoader(queryClient),
-            action: editPostAction(queryClient),
+            element: <EditJob />,
+            loader: editJobLoader(queryClient),
+            action: editJobAction(queryClient),
           },
-          { path: 'delete-job/:id', action: deletePostAction(queryClient) },
+          { path: 'delete-job/:id', action: deleteJobAction(queryClient) },
         ],
       },
     ],
