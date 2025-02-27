@@ -3,9 +3,15 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import {
   HomeLayout,
+  Landing,
   Register,
   Login,
-  Error
+  DashboardLayout,
+  Error,
+  AddPost, 
+  AllPosts,
+  Profile, 
+  Admin
 } from './pages';
 
 import { action as registerAction } from './pages/Register';
@@ -34,6 +40,10 @@ const router = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
+        index: true,
+        element: <Landing />,
+      },
+      {
         path: 'register',
         element: <Register />,
         action: registerAction,
@@ -43,41 +53,41 @@ const router = createBrowserRouter([
         element: <Login />,
         action: loginAction(queryClient),
       },
-      // {
-      //   path: 'dashboard',
-      //   element: <DashboardLayout queryClient={queryClient} />,
-      //   loader: dashboardLoader(queryClient),
-      //   children: [
-      //     {
-      //       index: true,
-      //       element: <AddPost />,
-      //       action: addPostAction(queryClient),
-      //     },
-      //     {
-      //       path: 'all-jobs',
-      //       element: <AllPosts />,
-      //       loader: allPostsLoader(queryClient),
-      //       errorElement: <ErrorElement />,
-      //     },
-      //     {
-      //       path: 'profile',
-      //       element: <Profile />,
-      //       action: profileAction(queryClient),
-      //     },
-      //     {
-      //       path: 'admin',
-      //       element: <Admin />,
-      //       loader: adminLoader,
-      //     },
-      //     {
-      //       path: 'edit-job/:id',
-      //       element: <EditPost />,
-      //       loader: editPostLoader(queryClient),
-      //       action: editPostAction(queryClient),
-      //     },
-      //     { path: 'delete-job/:id', action: deletePostAction(queryClient) },
-      //   ],
-      // },
+      {
+        path: 'dashboard',
+        element: <DashboardLayout queryClient={queryClient} />,
+        loader: dashboardLoader(queryClient),
+        children: [
+          {
+            index: true,
+            element: <AddPost />,
+            action: addPostAction(queryClient),
+          },
+          {
+            path: 'all-jobs',
+            element: <AllPosts />,
+            loader: allPostsLoader(queryClient),
+            errorElement: <ErrorElement />,
+          },
+          {
+            path: 'profile',
+            element: <Profile />,
+            action: profileAction(queryClient),
+          },
+          {
+            path: 'admin',
+            element: <Admin />,
+            loader: adminLoader,
+          },
+          {
+            path: 'edit-job/:id',
+            element: <EditPost />,
+            loader: editPostLoader(queryClient),
+            action: editPostAction(queryClient),
+          },
+          { path: 'delete-job/:id', action: deletePostAction(queryClient) },
+        ],
+      },
     ],
   },
 ]);
