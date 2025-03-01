@@ -38,6 +38,11 @@ const Wrapper = styled.section`
   .btn {
     padding: 0.75rem 1rem;
   }
+  .logo {
+    display: inline-block;
+    width: 150px; /* Adjusted size */
+    height: auto; /* Maintain aspect ratio */
+  }
   @media (min-width: 992px) {
     .page {
       grid-template-columns: 1fr 400px;
