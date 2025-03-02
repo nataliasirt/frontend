@@ -3,7 +3,7 @@
 const AllJobs = () => {
   return (
     <h1>
-      AllJobs
+      AllPosts
     </h1>
   )
 }

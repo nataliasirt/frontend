@@ -1,4 +1,4 @@
-const AddJob = () => {
-    return <h1>AddJob</h1>;
+const AddJobs = () => {
+    return <h1>AddPost</h1>;
   };
-  export default AddJob;
+  export default AddJobs;

@@ -5,9 +5,10 @@ const Wrapper = styled.section`
   display: grid;
   align-items: center;
   .logo {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 1.38rem;
+    display: center;
+    width: 100px; /* Adjusted size */
+    height: auto; /* Maintain aspect ratio */
+    margin-left: 110px;
   }
   .form {
     max-width: 400px;

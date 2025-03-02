@@ -17,6 +17,12 @@ const Wrapper = styled.section`
     .dashboard-page {
       width: 90%;
     }
+    .logo {
+    display: inline-block;
+    width: 100px; /* Adjusted size */
+    height: auto; /* Maintain aspect ratio */
+    padding-top: 20px; 
+  }
   }
 `;
 export default Wrapper;
