@@ -16,7 +16,7 @@ const Landing = () => {
           </h1>
           <p>
             Welcome to Travel Tracker, where unforgettable adventures
-            begin. Whether you're dreaming of sun-kissed beaches, vibrant
+            begin. Whether you are dreaming of sun-kissed beaches, vibrant
             cityscapes, or breathtaking mountain retreats, we make travel
             effortless and extraordinary. Discover handpicked destinations,
             expert tips, and seamless planning—all tailored to your wanderlust.

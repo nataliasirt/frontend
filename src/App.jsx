@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import {
   HomeLayout,
   Error,
@@ -13,6 +12,15 @@ import {
   Profile,
   Admin
 } from './pages';
+const checkDefaultTheme = () => {
+  const isDarkTheme =
+    localStorage.getItem('darkTheme') === 'true'
+  document.body.classList.toggle('dark-theme', isDarkTheme);
+  return isDarkTheme;
+};
+
+
+const isDarkThemeEnabled = checkDefaultTheme();
 
 const router = createBrowserRouter([
   {
@@ -34,18 +42,17 @@ const router = createBrowserRouter([
       },
       {
         path: 'dashboard',
-        element: <DashboardLayout />,
+        element: <DashboardLayout isDarkThemeEnabled={isDarkThemeEnabled}/>,
         children: [
+          {index: true, element: <AddJob/>},
           {
-            index: true,
-            element: <AddJob />,
+            path: 'stats',
+            element: <Stats />,
           },
-          { path: 'stats', element: <Stats /> },
           {
             path: 'all-jobs',
             element: <AllJobs />,
           },
-
           {
             path: 'profile',
             element: <Profile />,
@@ -54,7 +61,7 @@ const router = createBrowserRouter([
             path: 'admin',
             element: <Admin />,
           },
-        ],
+        ]
       },
     ],
   },
